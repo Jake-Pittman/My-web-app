@@ -1,0 +1,29 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/My-web-app/templates/index.html
+index 0000000000000000000000000000000000000000..474a46e868c21abd8f4d3d0c74fe55bc9856c546 100644
+--- a//dev/null
++++ b/My-web-app/templates/index.html
+@@ -0,0 +1,20 @@
++<!doctype html>
++<html>
++<head>
++    <title>Story Generator</title>
++</head>
++<body>
++    <h1>Create a Sandra Boynton Style Story</h1>
++    <form action="/" method="post" enctype="multipart/form-data">
++        <label for="animals">Favorite animals:</label>
++        <input type="text" id="animals" name="animals" required><br>
++        <label for="story_type">Story type:</label>
++        <input type="text" id="story_type" name="story_type" required><br>
++        <label for="character_name">Character name:</label>
++        <input type="text" id="character_name" name="character_name" required><br>
++        <label for="voice_sample">Voice sample:</label>
++        <input type="file" id="voice_sample" name="voice_sample" accept="audio/*"><br>
++        <button type="submit">Generate Story</button>
++    </form>
++</body>
++</html>
+ 
+EOF
+)
