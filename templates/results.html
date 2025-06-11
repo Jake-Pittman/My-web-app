@@ -1,0 +1,28 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/My-web-app/templates/result.html
+index 0000000000000000000000000000000000000000..0a667b3939c373485e9d5e2706dd4a152d037382 100644
+--- a//dev/null
++++ b/My-web-app/templates/result.html
+@@ -0,0 +1,19 @@
++<!doctype html>
++<html>
++<head>
++    <title>Your Story</title>
++</head>
++<body>
++    <h1>Your Story</h1>
++    <p>{{ story }}</p>
++    {% if audio_data %}
++    <audio controls>
++        <source src="data:audio/wav;base64,{{ audio_data }}" type="audio/wav">
++        Your browser does not support the audio element.
++    </audio>
++    {% else %}
++    <p>(Audio not available)</p>
++    {% endif %}
++    <a href="/">Create Another Story</a>
++</body>
++</html>
+ 
+EOF
+)
